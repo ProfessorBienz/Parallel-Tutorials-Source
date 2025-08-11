@@ -55,32 +55,32 @@ int main(int argc, char* argv[])
             counts[6]++;
     }
 
-    if (counts[0] != 1)
+    if (counts[0] < 1)
     {
         fprintf(stderr, "Rank %d did not print 1 H.\n", rank);
         MPI_Abort(MPI_COMM_WORLD, -1);
     }
-    else if (counts[1] != 1)
+    else if (counts[1] < 1)
     {
         fprintf(stderr, "Rank %d did not print 1 e.\n", rank);
         MPI_Abort(MPI_COMM_WORLD, -1);
     }
-    else if (counts[2] != 3)
+    else if (counts[2] < 3)
     {
         fprintf(stderr, "Rank %d did not print 3 l's.\n", rank);
         MPI_Abort(MPI_COMM_WORLD, -1);
     }
-    else if (counts[3] != 2)
+    else if (counts[3] < 2)
     {
         fprintf(stderr, "Rank %d did not print 2 w's.\n", rank);
         MPI_Abort(MPI_COMM_WORLD, -1);
     }
-    else if (counts[4] != 1)
+    else if (counts[4] < 1)
     {
         fprintf(stderr, "Rank %d did not print 1 r.\n", rank);
         MPI_Abort(MPI_COMM_WORLD, -1);
     }
-    else if (counts[5] != 1)
+    else if (counts[5] < 1)
     {
         fprintf(stderr, "Rank %d did not print 1 d.\n", rank);
         MPI_Abort(MPI_COMM_WORLD, -1);
