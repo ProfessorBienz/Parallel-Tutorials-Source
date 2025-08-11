@@ -5,14 +5,23 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-bool mpi_initialized;
-bool mpi_finalized;
-bool print
-int mpi_num_procs;
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
-int __wrap_MPI_Init(int* argc, char*** argv);
-int __wrap_MPI_Finalize();
-int __wrap_printf(const char * format, ...);
+extern bool mpi_initialized;
+extern bool mpi_finalized;
+extern int mpi_num_procs;
 
+int MPI_Init(int *argc, char ***argv);
+int MPI_Finalize();
+
+// Method to edit in tutorial
+int tutorial_main(int argc, char* argv[]);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

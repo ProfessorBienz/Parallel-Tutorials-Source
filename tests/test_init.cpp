@@ -1,8 +1,10 @@
 #include "src.hpp"
 
-int test_main(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
-    main(argc, argv);
+    PMPI_Init(&argc, &argv);
+    
+    tutorial_main(argc, argv);
 
     if (mpi_initialized == false)
     {
@@ -10,5 +12,7 @@ int test_main(int argc, char* argv[])
         return -1;
     }
 
+    PMPI_Finalize();
+    
     return 0;
 }

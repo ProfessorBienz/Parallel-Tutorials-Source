@@ -1,21 +1,20 @@
 #include "src.hpp"
 
-mpi_initialized = false;
-mpi_finalized = false;
-printed = false;
-num_procs = 0;
+bool mpi_initialized = false;
+bool mpi_finalized = false;
+int num_procs = 0;
 
-int __wrap_MPI_Init(int* argc, char*** argv)
+int MPI_Init(int* argc, char*** argv)
 {
-    mpi_initialzied = true;
-    int ierr = PMPI_Init(argc, argv);
+    mpi_initialized = true;
     MPI_Comm_size(MPI_COMM_WORLD, &num_procs);
+    return MPI_SUCCESS;
 }
 
 
-int __wrap_MPI_Finalize()
+int MPI_Finalize()
 {
     mpi_finalized = true;
-    return PMPI_Finalize();
+    return MPI_SUCCESS;
 }
 
