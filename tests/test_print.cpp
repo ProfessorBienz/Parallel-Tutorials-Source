@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
 
     if (counts[0] < 1)
     {
-        fprintf(stderr, "Rank %d did not print 1 H.\n", rank);
+        fprintf(stderr, "Rank %d did not print 1 H. Counts %d\n", rank, counts[0]);
         MPI_Abort(MPI_COMM_WORLD, -1);
     }
     else if (counts[1] < 1)
