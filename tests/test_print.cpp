@@ -55,37 +55,27 @@ int main(int argc, char* argv[])
             counts[6]++;
     }
 
+    bool hello_world = true;
     if (counts[0] < 1)
-    {
-        fprintf(stderr, "Rank %d did not print 1 H. Counts %d\n", rank, counts[0]);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
+        hello_world = false;
     else if (counts[1] < 1)
-    {
-        fprintf(stderr, "Rank %d did not print 1 e.\n", rank);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
+        hello_world = false;
     else if (counts[2] < 3)
-    {
-        fprintf(stderr, "Rank %d did not print 3 l's.\n", rank);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
+        hello_world = false;
     else if (counts[3] < 2)
-    {
-        fprintf(stderr, "Rank %d did not print 2 w's.\n", rank);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
+        hello_world = false;
     else if (counts[4] < 1)
-    {
-        fprintf(stderr, "Rank %d did not print 1 r.\n", rank);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
+        hello_world = false;
     else if (counts[5] < 1)
+        hello_world = false;
+    else if (counts[6] < 1)
+        hello_world = false;
+
+    if (not hello_world)
     {
-        fprintf(stderr, "Rank %d did not print 1 d.\n", rank);
+        fprintf(stderr, "Rank %d did not print Hello World.  Capitalization does not matter, but make sure it is spelled correctly.\n", rank);
         MPI_Abort(MPI_COMM_WORLD, -1);
     }
-
 
     fclose(file);
 
