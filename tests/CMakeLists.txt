@@ -14,6 +14,6 @@ foreach(src ${CPP_SOURCES})
     target_link_libraries(${exec_name} tutorial ${MPI_LIBRARIES})
 
     # Add to CTEST
-    add_test(NAME ${exec_name}_Test COMMAND ${MPIRUN} -n 16 ./${exec_name})
+    add_test(NAME ${exec_name}_Test COMMAND ${MPIRUN} -n 4 ./${exec_name})
 
 endforeach()
