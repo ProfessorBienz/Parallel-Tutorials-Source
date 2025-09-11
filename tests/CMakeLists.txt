@@ -18,8 +18,11 @@ foreach(src ${CPP_SOURCES})
 
 endforeach()
 
-set_tests_properties(test_init_Test PROPERTIES LABELS "hello_world;rank")
-set_tests_properties(test_finalize_Test PROPERTIES LABELS "hello_world;rank")
-set_tests_properties(test_print_Test PROPERTIES LABELS "hello_world;rank")
+set_tests_properties(test_init_Test PROPERTIES LABELS "hello_world;rank;size")
+set_tests_properties(test_finalize_Test PROPERTIES LABELS "hello_world;rank;size")
+set_tests_properties(test_print_Test PROPERTIES LABELS "hello_world;rank;size")
 
-set_tests_properties(test_print_rank_Test PROPERTIES LABELS "rank")
+set_tests_properties(test_print_rank_Test PROPERTIES LABELS "rank;size")
+
+set_tests_properties(test_print_size_Test PROPERTIES LABELS "size")
+
