@@ -17,3 +17,9 @@ foreach(src ${CPP_SOURCES})
     add_test(NAME ${exec_name}_Test COMMAND ${MPIRUN} -n 4 ./${exec_name})
 
 endforeach()
+
+set_tests_properties(test_init_Test PROPERTIES LABELS "hello_world;rank")
+set_tests_properties(test_finalize_Test PROPERTIES LABELS "hello_world;rank")
+set_tests_properties(test_print_Test PROPERTIES LABELS "hello_world;rank")
+
+set_tests_properties(test_print_rank_Test PROPERTIES LABELS "rank")
