@@ -19,6 +19,8 @@ int MPI_Finalize();
 
 // Method to edit in tutorial
 int tutorial_main(int argc, char* argv[]);
+double* generate_random_array(int N);
+double time_random_array_generation(int N);
 
 #ifdef __cplusplus
 }
