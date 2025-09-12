@@ -7,19 +7,11 @@ int main(int argc, char* argv[])
     int num_procs;
     MPI_Comm_size(MPI_COMM_WORLD, &num_procs);
 
-    int n = 10;
-    int N = num_procs * n;
-    std::vector<double> rand_array(n);
-    generate_random_array(N, rand_array.data());
+    double val0, val1;
+    val0 = generate_random();
+    val1 = generate_random();
 
-    std::vector<double> rand_array2(n);
-    generate_random_array(N, rand_array.data());
-
-    int n_same = 0;
-    for (int i = 0; i < n; i++)
-       if (rand_array[i] == rand_array2[i])
-          n_same++;
-    if (n_same == n) 
+    if (val0 == val1)
     {
         fprintf(stderr, "Rank %d is getting the same data each time an array is generated.  Make sure to randomize your seed with time.\n");
         MPI_Abort(MPI_COMM_WORLD, -1);
