@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <vector>
+#include <cstring>
 
 
 int main(int argc, char* argv[])
