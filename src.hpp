@@ -21,7 +21,7 @@ int MPI_Finalize();
 int tutorial_main(int argc, char* argv[]);
 double generate_random();
 void generate_random_array(int N, double*);
-double time_random_array_generation(int N);
+double time_random_array_generation(int N, double*);
 
 #ifdef __cplusplus
 }
