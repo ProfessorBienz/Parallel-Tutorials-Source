@@ -18,6 +18,10 @@ foreach(src ${CPP_SOURCES})
 
 endforeach()
 
-set_tests_properties(test_init_Test test_finalize_Test test_proc_seed_Test test_randomness_Test PROPERTIES LABELS "random_seed")
+set_tests_properties(test_init_Test test_finalize_Test test_proc_seed_Test test_randomness_Test PROPERTIES LABELS "random_seed;random_list;time_list")
+
+set_tests_properties(test_random_list_Test PROPERTIES LABELS "random_list;time_list")
+
+set_tests_properties(test_time_random_Test PROPERTIES LABELS "time_list")
 
 
