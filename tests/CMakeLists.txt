@@ -18,10 +18,10 @@ foreach(src ${CPP_SOURCES})
 
 endforeach()
 
-set_tests_properties(test_init_Test test_finalize_Test test_proc_seed_Test test_randomness_Test PROPERTIES LABELS "random_seed;random_list;time_list")
+set_tests_properties(test_init_Test test_finalize_Test test_send_recv_Test PROPERTIES LABELS "send_recv;ping_pong_send_and_recv;ping_pong_sendrecv")
 
-set_tests_properties(test_random_list_Test PROPERTIES LABELS "random_list;time_list")
+set_tests_properties(test_ping_pong_send_and_recv_Test PROPERTIES LABELS "ping_pong_send_and_recv;ping_pong_sendrecv")
 
-set_tests_properties(test_time_random_Test PROPERTIES LABELS "time_list")
+set_tests_properties(test_ping_pong_sendrecv_Test PROPERTIES LABELS "ping_pong_sendrecv")
 
 
