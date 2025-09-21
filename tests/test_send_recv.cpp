@@ -8,6 +8,9 @@ int main(int argc, char* argv[])
 {
     PMPI_Init(&argc, &argv);
 
+    int rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
     // --- First call ---
     double val1 = send_recv_random();
 
@@ -15,8 +18,9 @@ int main(int argc, char* argv[])
     double min_val1 = 0.0;
     PMPI_Allreduce(&val1, &min_val1, 1, MPI_DOUBLE, MPI_MIN, MPI_COMM_WORLD);
 
-    if (fabs(val1 - min_val1) > 1e-12) {
-        fprintf(stderr, "send_recv_random mismatch across ranks (first call)\n");
+
+    if (val1 != min_val1) {
+        fprintf(stderr, "Rank %d, send_recv_random returned %e but other ranks returned %e\n", rank, val1, min_val1);
         PMPI_Abort(MPI_COMM_WORLD, -1);
     }
 
