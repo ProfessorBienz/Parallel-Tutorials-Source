@@ -19,9 +19,9 @@ int MPI_Finalize();
 
 // Method to edit in tutorial
 int tutorial_main(int argc, char* argv[]);
-double generate_random();
-void generate_random_array(int N, double*);
-double time_random_array_generation(int N, double*);
+double send_recv();
+void ping_pong_send_and_recv(int N, double*, double*);
+void ping_pong_sendrecv(int N, double*, double*);
 
 #ifdef __cplusplus
 }
