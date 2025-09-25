@@ -18,10 +18,10 @@ foreach(src ${CPP_SOURCES})
 
 endforeach()
 
-set_tests_properties(test_init_Test test_finalize_Test test_send_recv_Test PROPERTIES LABELS "send_recv;ping_pong_send_and_recv;ping_pong_sendrecv")
+set_tests_properties(test_init_Test test_finalize_Test test_simple_Test PROPERTIES LABELS "simple;pairwise;ring")
 
-set_tests_properties(test_ping_pong_send_and_recv_Test PROPERTIES LABELS "ping_pong_send_and_recv;ping_pong_sendrecv")
+set_tests_properties(test_pairwise_Test PROPERTIES LABELS "pairwise;ring")
 
-set_tests_properties(test_ping_pong_sendrecv_Test PROPERTIES LABELS "ping_pong_sendrecv")
+set_tests_properties(test_ring_Test PROPERTIES LABELS "ring")
 
 

@@ -19,9 +19,9 @@ int MPI_Finalize();
 
 // Method to edit in tutorial
 int tutorial_main(int argc, char* argv[]);
-double send_recv_random();
-void ping_pong_send_and_recv(int N, double*, double*);
-void ping_pong_sendrecv(int N, double*, double*);
+void allgather_simple(double* sendbuf, double* recvbuf, int N);
+void allgather_pairwise(double* sendbuf, double* recvbuf, int N);
+void allgather_ring(double* sendbuf, double* recvbuf, int N);
 
 #ifdef __cplusplus
 }
