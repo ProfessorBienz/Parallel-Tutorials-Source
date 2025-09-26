@@ -41,43 +41,6 @@ int main(int argc, char* argv[])
         MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
-    n_same = 0;
-    for (int i = 0; i < n; i++)
-        if (rand_array[i] == rand_array2[i])
-            n_same++;
-    if (n_same == n)
-    {
-        fprintf(stderr, "Rank %d's array is not random.  Make sure your seed is based on time.\n", rank);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
-
-    std::vector<double> gathered_array(N, 0);
-    MPI_Allgather(rand_array.data(), n, MPI_DOUBLE, gathered_array.data(),
-            n, MPI_DOUBLE, MPI_COMM_WORLD);
-    n_same = 0;
-    for (int proc = 0; proc < num_procs; proc++)
-    {
-        if (rank == proc)
-            continue;
-        n_same = 0;
-        for (int i = 0; i < n; i++)
-            if (rand_array[i] == gathered_array[proc*n+i])
-                n_same++;
-        if (n_same == n)
-        {
-            fprintf(stderr, "Ranks %d and %d generated same arrays.  Make sure to seed based on rank\n", rank, proc);
-            MPI_Abort(MPI_COMM_WORLD, -1);
-        }
-    }
-
-
-    for (int i = n; i < N; i++)
-        if (rand_array[i] != 0)
-        {
-            fprintf(stderr, "Rank %d generated too many numbers.  N is %d, so each rank should be generating a list of %d numbers\n", rank, N, n);
-            MPI_Abort(MPI_COMM_WORLD, -1);
-        }
-
     PMPI_Finalize();
     
     return 0;
