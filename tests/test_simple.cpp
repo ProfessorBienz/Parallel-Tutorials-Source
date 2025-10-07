@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    MPI_Finalize();
+    PMPI_Finalize();
     return 0;
 
 }
