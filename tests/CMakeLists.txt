@@ -18,10 +18,6 @@ foreach(src ${CPP_SOURCES})
 
 endforeach()
 
-set_tests_properties(test_init_Test test_finalize_Test test_simple_Test PROPERTIES LABELS "simple;pairwise;ring")
 
-set_tests_properties(test_pairwise_Test PROPERTIES LABELS "pairwise;ring")
-
-set_tests_properties(test_ring_Test PROPERTIES LABELS "ring")
 
 

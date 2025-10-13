@@ -19,9 +19,10 @@ int MPI_Finalize();
 
 // Method to edit in tutorial
 int tutorial_main(int argc, char* argv[]);
-void allgather_simple(double* sendbuf, double* recvbuf, int N);
-void allgather_pairwise(double* sendbuf, double* recvbuf, int N);
-void allgather_ring(double* sendbuf, double* recvbuf, int N);
+void transpose(double* A, double* AT, int local_n, int global_n);
+void transpose_alltoall(double* A, double* AT, int local_n, int global_n);
+void transpose_datatype(double* A, double* AT, int local_n, int global_n);
+
 
 #ifdef __cplusplus
 }
